@@ -1,7 +1,7 @@
 
 <div class="nav" id="nav">
     <div class="avatar-name">
-        <div class="avatar <% if(config.avatar_style && config.avatar_style.radius) {%>radius<% } %>">
+        <div class="avatar">
             <img src="<%= config['root'] %><%= config['sidebar-avatar'] %>" />
         </div>
         <div class="name">
@@ -33,6 +33,18 @@
                     <i class="iconfont icon-guanyu2"></i>
                     <span><%= __('nav.about') %></span>
                 </a>
+            </li>
+			<li <% if(is_current('books')){ %> <%- "class=active" %> <% } %>>
+                <a href="<%= url_for(config.book_dir) %>">
+                    <i class="iconfont icon-guanyu1"></i>
+                    <span><%= __('nav.books') %></span>
+                </a>
+            </li>
+			<li <% if(is_current('resume')){ %> <%- "class=active" %> <% } %>>
+			<a href="<%= url_for(config.resume_dir) %>">
+				<i class="iconfont icon-linkedin"></i>
+				<span><%= __('nav.resume') %></span>
+			</a>
             </li>
             <%if(config.search && config.search.path){%>
             <li>

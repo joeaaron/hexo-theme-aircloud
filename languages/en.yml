@@ -3,7 +3,10 @@ nav:
   tags: TAGS
   archives: ARCHIVES
   about: ABOUT
+  books: BOOK
+  resume: RESUME
   search: SEARCH
+  
 #
 #post:
 #  postTime: 发布于
