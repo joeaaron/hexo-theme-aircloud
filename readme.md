@@ -1,5 +1,3 @@
-###### 本博客提供给腾讯课堂官方课程[一线大厂 React 实践宝典](https://ke.qq.com/next_detail/index.html?id=4)做项目参考，作者即课程讲师之一。
-
 ## Hexo-Theme-AirCloud: 一个简洁轻量的 hexo 博客主题
 
 > [English Document](./readme-en.md) | [预览地址](http://niexiaotao.cn/)
@@ -14,7 +12,7 @@ Hexo-Theme-AirCloud 是一个简洁轻量的 hexo 博客主题，旨在将中心
 另外，该主题主要实现的功能有:
 
 * 全局搜索功能，并对搜索内容进行高亮。
-* 博客评论功能，目前接入 [gitment](https://imsun.net/posts/gitment-introduction/)，之后考虑接入多种可选。
+* 博客评论功能：内置了针对 https://giscus.app/ 的支持
 * 文章详情页文章目录功能
 * 访问量统计（总体UV、PV，单页PV）
 * 语言切换能力，目前支持中文和英文
@@ -32,6 +30,7 @@ Hexo-Theme-AirCloud 是一个简洁轻量的 hexo 博客主题，旨在将中心
     * [评论功能](https://github.com/aircloud/hexo-theme-aircloud#%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD)
     * [favicon 的配置](https://github.com/aircloud/hexo-theme-aircloud#%E6%A0%87%E7%AD%BE%E9%A1%B5%E9%9D%A2--%E5%85%B3%E4%BA%8E%E9%A1%B5%E9%9D%A2)
     * [底部自定义](https://github.com/aircloud/hexo-theme-aircloud#%E5%BA%95%E9%83%A8%E8%87%AA%E5%AE%9A%E4%B9%89)
+    * [站长统计](https://github.com/aircloud/hexo-theme-aircloud#%E7%AB%99%E9%95%BF%E7%BB%9F%E8%AE%A1)
 * [高级自定义](https://github.com/aircloud/hexo-theme-aircloud#%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B)
     * [首行缩进](https://github.com/aircloud/hexo-theme-aircloud#%E9%A6%96%E8%A1%8C%E7%BC%A9%E8%BF%9B)
 * [常见问题](https://github.com/aircloud/hexo-theme-aircloud#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
@@ -94,9 +93,37 @@ search:
 ### 评论功能
 
 目前，本博客支持以下评论功能：
+- [giscus](https://giscus.app/) 推荐目前使用
 - [gitment](https://imsun.net/posts/gitment-introduction/)（gitment 经常会出现限频或者 404 等错误，其作者已关闭github认证转发服务）
 - [disqus](https://disqus.com) 
 - [LiveRe](https://www.livere.com)
+
+
+#### giscus
+
+只需要在 https://giscus.app 配置好，然后把对应的 script 标签复制，参考下面的配置在 _config.yml 里面配置即可。
+
+[DEMO](https://github.com/aircloud/hexo-aircloud-blog) 目前就是使用了这个评论功能，建议直接参考（但请勿直接复制下面的内容）。
+
+```
+comment:
+  type: giscus
+  script: |
+      <script src="https://giscus.app/client.js"
+          data-repo="aircloud/hexo-aircloud-blog"
+          data-repo-id="MDEwOlJlcG9zaXRvcnkxMjkwNDgyNjg="
+          data-category="Announcements"
+          data-category-id="DIC_kwDOB7EezM4COhKJ"
+          data-mapping="title"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+      </script>
+```
 
 #### gitment
 
@@ -196,6 +223,36 @@ friends: [
 ```
 
 最底部的 PV、UV 和模版地址，无需配置。
+
+### 站长统计
+
+如果不想包括某些统计平台，直接注释或删除相关代码即可。
+
+```yml
+analytics:
+  google:
+    # https://search.google.com
+    site_verification:
+    # https://analytics.google.com
+    gtag_id:
+  bing:
+    # https://www.bing.com/webmasters
+    site_verification:
+  baidu:
+    # https://ziyuan.baidu.com/site/index
+    site_verification:
+    # https://tongji.baidu.com
+    id:
+    # https://ziyuan.baidu.com/college/courseinfo?id=156&page=4#h2_article_title1
+    disable_transformation: false
+  cloudflare:
+    # https://dash.cloudflare.com
+    token:
+  umami:
+    # https://umami.is/
+    host:
+    id:
+```
 
 ## 高级自定义
 
